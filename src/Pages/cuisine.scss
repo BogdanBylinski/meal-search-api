@@ -3,8 +3,9 @@
     grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
     grid-gap: 3rem;
     img{
-        width: 100%;
+        width: 50%;
         border-radius: 2rem;
+        align-self: center;
         // box-shadow: 0.2rem 0.2rem;
         box-shadow: 0.5rem 0.5rem 2rem 0px rgba(0,0,0,0.41)
         
@@ -18,3 +19,8 @@
         padding: 1rem;
     }
 }   
+.card {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
