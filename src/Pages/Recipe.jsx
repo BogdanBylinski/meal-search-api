@@ -26,10 +26,7 @@ function Recipe({like, delas, meals}) {
     console.log(meals, '<-----mealai');
     console.log(meals.filter(meals=> meals.idMeal === details.idMeal).length );
     console.log(details, '<-----== details');
-const log=(e)=>{
-  console.log(details)
 
-}
   return (
     <div className="detailWrapper">
         <div className="left">
@@ -43,13 +40,13 @@ const log=(e)=>{
           <button className={activeTab=== 'ingredients' ? 'active' : ''} onClick={()=> setActiveTab('ingredients')}>ingredients</button>
           {/* <div class="heart"></div> */}
           {
-           meals.filter(meals=> meals.idMeal === details.idMeal).length === 1?
+           meals.filter(meals=> meals.idMeal === details.idMeal).length === 1? //patikriname ar favorite arr turi objekta
            
            <div className="delas">
 
              <BsHeartFill  onClick={()=>delas(details)}></BsHeartFill>
            </div>
-           :
+           : // jeigu ne istatome like button
            <div className="like">
 
              <BsHeartFill onClick={()=>like(details)}></BsHeartFill>
@@ -62,14 +59,19 @@ const log=(e)=>{
           <div className="rightIngredients">
           <h3>{details.strInstructions}</h3>
         </div>
-        : <>
+        : // jeigu ne, mapinam ingridientus 
+        <> 
         <div className="right">
 
         <ul className="igredient">
 
         {Object.keys(details).map((k,i)=>{
           if(k.substring(0, 13 )=== 'strIngredient' && details[k]!=='' && details[k]!==null){
-            return  <li key={i}>{details[k]}</li>
+            console.log(details[k].split(' ')[0]);
+            return  <li key={i}>
+              {details[k]}
+              <img src={`https://www.themealdb.com/images/ingredients/${details[k].split(' ').join('%20')}.png`} alt="" />
+              </li>
           }
         })}
         </ul>

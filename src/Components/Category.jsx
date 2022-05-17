@@ -1,9 +1,9 @@
 import { useEffect, useState} from 'react';
-import {FaPizzaSlice, FaHamburger} from 'react-icons/fa';
-import {GiNoodles, GiChopsticks} from 'react-icons/gi';
 import { NavLink } from 'react-router-dom';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css'
+import { Rcp } from '../data/Category';
+
 
 
 function Category() {
@@ -11,19 +11,20 @@ function Category() {
 
 
   
-    const getCategory = async ()=>{
-      const check =localStorage.getItem('category')
-      if(check){
-        setCategory(JSON.parse(check))
-      }else{
-         const api = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=list`)
-        const data = await api.json()
-        setCategory(data.meals)
-      }
+    // const getCategory = async ()=>{
+    //   const check =localStorage.getItem('category')
+    //   if(check){
+    //     setCategory(JSON.parse(check))
+    //   }else{
+    //      const api = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=list`)
+    //     const data = await api.json()
+    //     setCategory(data.meals)
+    //   }
       
-    } 
+    // } 
      useEffect(() => {
-      getCategory()
+       setCategory(Rcp)
+      // getCategory()
     }, [])
   return (
     <div className="wrapper">
