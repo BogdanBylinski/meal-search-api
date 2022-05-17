@@ -45,7 +45,7 @@ function Popular() {
 
     {
         popular.map(item =>
-            <Link to={'/recipe/' + item.idMeal}>
+            <Link key={item.idMeal} to={'/recipe/' + item.idMeal}>
           <div className="card" key={item.idMeal}>
           <img src={item.strMealThumb} alt={item.strMealThumb} />
           <h4>{item.strMeal}</h4>

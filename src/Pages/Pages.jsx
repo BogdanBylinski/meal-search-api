@@ -66,6 +66,7 @@ function Pages() {
 
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={<Home ></Home>}></Route>
+      <Route path="/meal-search-api" element={<Home ></Home>}></Route>
       <Route path="/cuisine/:type" element={<Cuisine />}></Route>
       <Route path="/searched/:search" element={<Searched  />}></Route>
       <Route path="/recipe/:name" element={<Recipe delas={delas} like={like} meals={meal} ></Recipe>}></Route>
